@@ -2,8 +2,10 @@ require('dotenv').config()
 var express = require('express');
 var bodyParser = require('body-parser');
 var Pusher = require('pusher');
+const cors = require('cors')
 
 var app = express();
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -47,5 +49,5 @@ app.post('/pusher/auth', function (req, res) {
     }
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3001;
 app.listen(port);
